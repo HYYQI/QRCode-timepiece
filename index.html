@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>时钟</title>
+  </head>
+  <body onload="update_time()">
+    <h1>现在是:</h1>
+    <h2 id="time-area">time</h2>
+
+    <script>
+      function update_time(){
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const timeString = `${hours}:${minutes}:${seconds}`;
+
+        document.getElementById('time-area').textContent = timeString;
+        setTimeout(update_time, 1000);
+      }
+    </script>
+  </body>
+</html>
